@@ -16,8 +16,8 @@ export default function Layout({ children, pagina }) {
           <Sidebar />
         </aside>
 
-        <main className="md:w-7/12 xl:w-3/4 2xl:w-4/5 h-screen overflow-y-scroll">
-          <div className="p-10 mt-5">
+        <main className="md:w-7/12 xl:w-3/4 2xl:w-4/5 md:h-screen md:overflow-y-scroll">
+          <div className="pt-14 px-5 xl:px-10">
             {children}
           </div>
         </main>
