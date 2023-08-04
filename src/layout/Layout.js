@@ -2,6 +2,7 @@ import Head from "next/head"
 import Sidebar from "@/components/Sidebar"
 import Modal from "react-modal"
 import useBocados from "@/hooks/useBocados";
+import ModalProducto from "@/components/ModalProducto";
 
 const customStyles = {
   overlay: {
@@ -50,7 +51,7 @@ export default function Layout({ children, pagina }) {
             isOpen={modal}
             style={customStyles}
           >
-            <h1>Modal</h1>
+            <ModalProducto/>
           </Modal>
         )
       }
