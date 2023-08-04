@@ -17,6 +17,11 @@ const BocadosProvider = ({children}) => {
         obtenerCategorias()
     }, [])
 
+    //Cargar una categoria la primera vez que se renderiza la pagina
+    useEffect(() => {
+        setCategoriaActual(categorias[0])
+    }, [categorias])
+
     //Obtener categoria actual
     const handleClickCategoria = id => {
         const categoria = categorias.filter(cat => cat.id === id)
