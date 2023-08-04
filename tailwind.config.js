@@ -13,6 +13,10 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        // Aquí puedes agregar tus fuentes personalizadas de Google Fonts
+        halant: ['Halant', 'serif'],
+      },
     },
   },
   plugins: [],

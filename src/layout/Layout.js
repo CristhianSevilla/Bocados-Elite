@@ -12,11 +12,11 @@ export default function Layout({children, pagina}) {
         </Head>
 
         <div className="md:flex ">
-            <aside className="md:w-5/12 xl:w-1/4 2xl:w-1/5 bg-amber-100">
+            <aside className="md:w-5/12 xl:w-1/4 2xl:w-1/5 bg-amber-300 ">
                 <Sidebar/>
             </aside>
 
-            <main className="md:w-7/12 xl:w-3/4 2xl:w-4/5 h-screen ">
+            <main className="md:w-7/12 xl:w-3/4 2xl:w-4/5 h-screen overflow-y-scroll">
                 {children}
             </main>
         </div>
