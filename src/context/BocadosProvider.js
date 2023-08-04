@@ -7,6 +7,8 @@ const BocadosProvider = ({children}) => {
 
     const [categorias, setCategorias] = useState([]);
     const [categoriaActual, setCategoriaActual] = useState({})
+    const [producto, setProducto] = useState({})
+    const [modal, setModal] = useState(false)
 
     // Consultar API
     useEffect(() => {
@@ -28,13 +30,27 @@ const BocadosProvider = ({children}) => {
         setCategoriaActual(categoria[0])
     }
 
+    //Agregar el Producto al State
+    const handleSetProducto = producto => {
+        setProducto(producto)
+    }
+
+    //Activar o desactivar modal
+    const handleChangeModal = () => {
+        setModal(!modal)
+    }
+
 
     return(
         <BocadosContext.Provider
             value={{
                 categorias,
                 categoriaActual,
-                handleClickCategoria
+                handleClickCategoria,
+                producto,
+                handleSetProducto,
+                modal,
+                handleChangeModal
             }}
         >
             {children}

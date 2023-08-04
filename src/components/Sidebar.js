@@ -8,8 +8,8 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="flex justify-center border border-black pt-2">
-        <Image width={200} height={200} src="/assets/img/logo.svg" alt="Logotipo Bocados Elite" priority />
+      <div className="flex justify-center border border-x-0 border-black pt-2">
+        <Image width={190} height={190} src="/assets/img/logo.svg" alt="Logotipo Bocados Elite" priority />
       </div>
 
       <nav>
