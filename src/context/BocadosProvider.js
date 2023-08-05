@@ -11,7 +11,6 @@ const BocadosProvider = ({ children }) => {
     const [producto, setProducto] = useState({})
     const [modal, setModal] = useState(false)
     const [pedido, setPedido] = useState([])
-    const [paso, setPaso] = useState(1)
 
     // Consultar API
     useEffect(() => {
@@ -44,7 +43,7 @@ const BocadosProvider = ({ children }) => {
     }
 
     //Agregar un pedido
-    const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
+    const handleAgregarPedido = ({categoriaId, ...producto}) => {
         //Comprobar si el producto ya esta en el pedido
         if (pedido.some(productoState => productoState.id === producto.id)) {
             //Actualizar la cantidad
@@ -86,10 +85,6 @@ const BocadosProvider = ({ children }) => {
         setModal(false)
     }
 
-    //Modificar el paso en el state
-    const handleChangePaso = paso => {
-        setPaso(paso)
-    }
 
     return (
         <BocadosContext.Provider
@@ -103,8 +98,6 @@ const BocadosProvider = ({ children }) => {
                 handleChangeModal,
                 handleAgregarPedido,
                 pedido,
-                paso,
-                handleChangePaso
             }}
         >
             {children}

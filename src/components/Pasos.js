@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import useBocados from "@/hooks/useBocados"
 
 const pasos = [
     { paso: 1, nombre: "Menú", url: "/" },
@@ -10,15 +9,12 @@ const pasos = [
 const Pasos = () => {
 
     const router = useRouter()
-    const { handleChangePaso, paso } = useBocados()
 
     const calcularProgreso = () => {
-        // const porcentaje = (paso / 3) * 100;
-        // return porcentaje;
         let valor;
-        if (paso === 1) {
+        if (router.pathname === "/") {
             valor = 25;
-        } else if (paso === 2) {
+        } else if (router.pathname === "/resumen") {
             valor = 65;
         }else {
             valor == 100
@@ -36,7 +32,6 @@ const Pasos = () => {
                             key={paso.paso}
                             onClick={() => {
                                 router.push(paso.url)
-                                handleChangePaso(paso.paso)
                             }}
                         >
                             {paso.nombre}
