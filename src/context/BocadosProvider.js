@@ -43,7 +43,14 @@ const BocadosProvider = ({ children }) => {
 
     //Agregar un pedido
     const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
-        setPedido([...pedido, producto])
+        //Comprobar si el producto ya esta en el pedido
+        if (pedido.some(productoState => productoState.id === producto.id)) {
+            //Actualizar la cantidad
+            const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
+            setPedido(pedidoActualizado)
+        }else{
+            setPedido([...pedido, producto])
+        }
     }
 
     return (
