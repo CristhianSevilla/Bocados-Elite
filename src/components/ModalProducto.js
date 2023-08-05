@@ -73,7 +73,7 @@ const ModalProducto = () => {
 
                 <button
                     type="button"
-                    className="w-full bg-amber-200 hover:bg-amber-300 text-amber-950 mt-5 font-bold text-xl md:text-2xl uppercase p-1.5"
+                    className="w-full bg-amber-200 hover:bg-lime-600 text-amber-950 mt-5 font-bold text-xl md:text-2xl uppercase p-1.5"
                     onClick={() => handleAgregarPedido({ ...producto, cantidad })}
                 >
                     {edicion ? "Guardar Cambios" : "Agregar al pedido"}

@@ -1,8 +1,11 @@
 import Head from "next/head"
 import Sidebar from "@/components/Sidebar"
 import Modal from "react-modal"
+import { ToastContainer } from "react-toastify";
 import useBocados from "@/hooks/useBocados";
 import ModalProducto from "@/components/ModalProducto";
+//Hoja de estilos de tostify
+import "react-toastify/dist/ReactToastify.css"
 
 const customStyles = {
   overlay: {
@@ -53,6 +56,9 @@ export default function Layout({ children, pagina }) {
           <ModalProducto />
         </Modal>
       }
+
+      <ToastContainer />
+
     </>
   )
 }

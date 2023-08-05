@@ -1,5 +1,6 @@
 import { useEffect, useState, createContext } from "react";
 import axios from "axios"
+import {toast} from "react-toastify"
 
 const BocadosContext = createContext()
 
@@ -48,8 +49,32 @@ const BocadosProvider = ({ children }) => {
             //Actualizar la cantidad
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
             setPedido(pedidoActualizado)
+            toast.success(`Pedido Actualizado con: ${producto.cantidad} ${producto.nombre} `, 
+            {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }
+            )
         }else{
             setPedido([...pedido, producto])
+            toast.success(`¡${producto.cantidad} Bocadito${producto.cantidad > 1 ? 's' : ''} Agregado${producto.cantidad > 1 ? 's' : ''} al Pedido!`, 
+            {
+                position: "top-right",
+                autoClose: 3800,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }
+            )
         }
 
         setModal(false)

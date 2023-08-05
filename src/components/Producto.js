@@ -28,7 +28,7 @@ const Producto = ({ producto }) => {
             </p>
 
             <button
-                className="flex gap-4 justify-center items-center absolute bottom-0 left-0 w-full border-t-2 hover:bg-amber-300 hover:text-amber-950 text-amber-100 mt-5 font-bold md:text-2xl uppercase p-1.5"
+                className="flex gap-4 justify-center items-center absolute bottom-0 left-0 w-full border-t-2 hover:bg-lime-600 hover:text-amber-950 text-amber-100 mt-5 font-bold md:text-2xl uppercase p-1.5"
                 type="button"
                 onClick={() => {
                     handleChangeModal()
