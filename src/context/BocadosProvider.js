@@ -3,17 +3,18 @@ import axios from "axios"
 
 const BocadosContext = createContext()
 
-const BocadosProvider = ({children}) => {
+const BocadosProvider = ({ children }) => {
 
     const [categorias, setCategorias] = useState([]);
     const [categoriaActual, setCategoriaActual] = useState({})
     const [producto, setProducto] = useState({})
     const [modal, setModal] = useState(false)
+    const [pedido, setPedido] = useState([])
 
     // Consultar API
     useEffect(() => {
         const obtenerCategorias = async () => {
-            const {data} = await axios('/api/categorias')
+            const { data } = await axios('/api/categorias')
             setCategorias(data)
         }
         obtenerCategorias()
@@ -40,8 +41,12 @@ const BocadosProvider = ({children}) => {
         setModal(!modal)
     }
 
+    //Agregar un pedido
+    const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
+        setPedido([...pedido, producto])
+    }
 
-    return(
+    return (
         <BocadosContext.Provider
             value={{
                 categorias,
@@ -50,7 +55,8 @@ const BocadosProvider = ({children}) => {
                 producto,
                 handleSetProducto,
                 modal,
-                handleChangeModal
+                handleChangeModal,
+                handleAgregarPedido
             }}
         >
             {children}

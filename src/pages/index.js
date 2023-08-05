@@ -15,7 +15,7 @@ export default function Home() {
 
       <p className="text-2xl mt-5 mb-10 text-amber-100">Elige y Personaliza tu pedido</p>
 
-      <div className="grid gap-5 xl:gap-10 grid-cols-2 xl:grid-cols-4 ">
+      <div className="grid gap-6 md:gap-8 xl:gap-12 grid-cols-2 xl:grid-cols-4 ">
         {categoriaActual?.productos?.map(producto => (
           <Producto
             key={producto.id}

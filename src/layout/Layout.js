@@ -6,7 +6,7 @@ import ModalProducto from "@/components/ModalProducto";
 
 const customStyles = {
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)', // Color del fondo del modal
+    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Color del fondo del modal
   },
   content: {
     top: '50%',
@@ -39,21 +39,19 @@ export default function Layout({ children, pagina }) {
         </aside>
 
         <main className="md:w-8/12 xl:w-3/4 2xl:w-4/5 md:h-screen md:overflow-y-scroll">
-          <div className="pt-14 pb-10 px-5 xl:px-10">
+          <div className="pt-14 pb-10 px-5 md:px-8 xl:px-12">
             {children}
           </div>
         </main>
       </div>
 
       {
-        modal && (
-          <Modal
-            isOpen={modal}
-            style={customStyles}
-          >
-            <ModalProducto/>
-          </Modal>
-        )
+        <Modal
+          isOpen={modal}
+          style={customStyles}
+        >
+          <ModalProducto />
+        </Modal>
       }
     </>
   )
