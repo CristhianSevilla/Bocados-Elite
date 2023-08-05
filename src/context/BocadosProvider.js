@@ -51,6 +51,8 @@ const BocadosProvider = ({ children }) => {
         }else{
             setPedido([...pedido, producto])
         }
+
+        setModal(false)
     }
 
     return (
@@ -63,7 +65,8 @@ const BocadosProvider = ({ children }) => {
                 handleSetProducto,
                 modal,
                 handleChangeModal,
-                handleAgregarPedido
+                handleAgregarPedido,
+                pedido
             }}
         >
             {children}

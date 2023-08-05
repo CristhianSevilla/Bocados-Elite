@@ -11,8 +11,8 @@ const Producto = ({ producto }) => {
         <div className="border border-amber-100 rounded-md relative pb-16">
             <Image
                 src={`/assets/img/${imagen}.jpg`}
-                width={300}
-                height={400}
+                width={400}
+                height={500}
                 alt={`Imagen de ${nombre}`}
                 className="rounded-t-md"
             />

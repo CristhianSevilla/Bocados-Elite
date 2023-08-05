@@ -34,7 +34,7 @@ export default function Layout({ children, pagina }) {
       </Head>
 
       <div className="md:flex ">
-        <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5 bg-amber-300 ">
+        <aside className="md:w-4/12 xl:w-1/4 2xl:w-1/5 bg-amber-300">
           <Sidebar />
         </aside>
 

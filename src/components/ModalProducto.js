@@ -1,12 +1,21 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import useBocados from "@/hooks/useBocados"
 import { formatearDinero } from "@/helpers"
 
 const ModalProducto = () => {
 
-    const { producto, handleChangeModal, handleAgregarPedido } = useBocados()
+    const { producto, handleChangeModal, handleAgregarPedido, pedido } = useBocados()
     const [cantidad, setCantidad] = useState(1)
+    const [edicion, setEdicion] = useState(false)
+    useEffect(() => {
+        //Comprobar si el Modal Actual esta en el pedido
+        if (pedido.some((pedidoState) => pedidoState.id === producto.id)) {
+            const productoEdicion = pedido.find((pedidoState) => pedidoState.id === producto.id);
+            setEdicion(true)
+            setCantidad(productoEdicion.cantidad)
+        }
+    }, [producto, pedido])
 
     return (
         <div className="md:flex gap-10 relative">
@@ -65,9 +74,9 @@ const ModalProducto = () => {
                 <button
                     type="button"
                     className="w-full bg-amber-200 hover:bg-amber-300 text-amber-950 mt-5 font-bold text-xl md:text-2xl uppercase p-1.5"
-                    onClick={() => handleAgregarPedido({...producto, cantidad})}
+                    onClick={() => handleAgregarPedido({ ...producto, cantidad })}
                 >
-                    Agregar al pedido
+                    {edicion ? "Guardar Cambios" : "Agregar al pedido"}
                 </button>
             </div>
         </div>
