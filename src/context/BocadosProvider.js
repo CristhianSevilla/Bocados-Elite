@@ -11,6 +11,7 @@ const BocadosProvider = ({ children }) => {
     const [producto, setProducto] = useState({})
     const [modal, setModal] = useState(false)
     const [pedido, setPedido] = useState([])
+    const [paso, setPaso] = useState(1)
 
     // Consultar API
     useEffect(() => {
@@ -49,6 +50,8 @@ const BocadosProvider = ({ children }) => {
             //Actualizar la cantidad
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
             setPedido(pedidoActualizado)
+
+            //Mostrar Notificación
             toast.success(`Pedido Actualizado con: ${producto.cantidad} ${producto.nombre} `, 
             {
                 position: "top-right",
@@ -63,6 +66,8 @@ const BocadosProvider = ({ children }) => {
             )
         }else{
             setPedido([...pedido, producto])
+
+            //Mostrar Notificación
             toast.success(`¡${producto.cantidad} Bocadito${producto.cantidad > 1 ? 's' : ''} Agregado${producto.cantidad > 1 ? 's' : ''} al Pedido!`, 
             {
                 position: "top-right",
@@ -77,7 +82,13 @@ const BocadosProvider = ({ children }) => {
             )
         }
 
+        //Asegurar que el modal se cierre cuando se agrega al pedido
         setModal(false)
+    }
+
+    //Modificar el paso en el state
+    const handleChangePaso = paso => {
+        setPaso(paso)
     }
 
     return (
@@ -91,7 +102,9 @@ const BocadosProvider = ({ children }) => {
                 modal,
                 handleChangeModal,
                 handleAgregarPedido,
-                pedido
+                pedido,
+                paso,
+                handleChangePaso
             }}
         >
             {children}

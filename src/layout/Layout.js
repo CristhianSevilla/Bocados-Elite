@@ -1,9 +1,10 @@
 import Head from "next/head"
-import Sidebar from "@/components/Sidebar"
-import Modal from "react-modal"
 import { ToastContainer } from "react-toastify";
-import useBocados from "@/hooks/useBocados";
+import Modal from "react-modal"
+import Sidebar from "@/components/Sidebar"
 import ModalProducto from "@/components/ModalProducto";
+import Pasos from "@/components/Pasos";
+import useBocados from "@/hooks/useBocados";
 //Hoja de estilos de tostify
 import "react-toastify/dist/ReactToastify.css"
 
@@ -43,6 +44,7 @@ export default function Layout({ children, pagina }) {
 
         <main className="md:w-8/12 xl:w-3/4 2xl:w-4/5 md:h-screen md:overflow-y-scroll">
           <div className="pt-14 pb-10 px-5 md:px-8 xl:px-12">
+            <Pasos/>
             {children}
           </div>
         </main>
