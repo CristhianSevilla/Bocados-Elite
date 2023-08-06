@@ -7,15 +7,15 @@ const Categoria = ({ categoria }) => {
     const { nombre, icono, id } = categoria
 
     return (
-        <div className={`${categoriaActual?.id === id ? 'bg-amber-700 text-amber-100' : ''} w-full border border-black border-x-0 text-amber-950 transition-bg transition-text duration-300 hover:bg-amber-700 hover:text-amber-100`}>
+        <div className={`${categoriaActual?.id === id ? 'bg-amber-800 text-amber-100' : 'text-amber-950'} w-full border border-black border-x-0 transition-bg transition-text duration-300 hover:bg-amber-800 hover:text-amber-100`}>
             <button
                 type="button"
-                className="flex items-center gap-4 px-2 py-3 text-3xl md:text-2xl xl:text-3xl font-bold hover:cursor-pointer w-full text-left font-halant"
+                className="flex items-center gap-4 px-2 py-3 text-2xl font-bold hover:cursor-pointer w-full text-left"
                 onClick={() => handleClickCategoria(id)}
             >
                 <Image
-                    width={70}
-                    height={70}
+                    width={53}
+                    height={53}
                     src={`/assets/img/icono_${icono}.jpg`}
                     alt="Icono"
                     priority

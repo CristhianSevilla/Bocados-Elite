@@ -1,6 +1,6 @@
 import { useEffect, useState, createContext } from "react";
 import axios from "axios"
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
 
 const BocadosContext = createContext()
 
@@ -43,7 +43,7 @@ const BocadosProvider = ({ children }) => {
     }
 
     //Agregar un pedido
-    const handleAgregarPedido = ({categoriaId, ...producto}) => {
+    const handleAgregarPedido = ({ categoriaId, ...producto }) => {
         //Comprobar si el producto ya esta en el pedido
         if (pedido.some(productoState => productoState.id === producto.id)) {
             //Actualizar la cantidad
@@ -51,32 +51,32 @@ const BocadosProvider = ({ children }) => {
             setPedido(pedidoActualizado)
 
             //Mostrar Notificación
-            toast.success(`Pedido Actualizado con: ${producto.cantidad} ${producto.nombre} `, 
-            {
-                position: "top-right",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
+            toast.success(`Pedido Actualizado con: ${producto.cantidad} ${producto.nombre} `,
+                {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
                 }
             )
-        }else{
+        } else {
             setPedido([...pedido, producto])
 
             //Mostrar Notificación
-            toast.success(`¡${producto.cantidad} Bocadito${producto.cantidad > 1 ? 's' : ''} Agregado${producto.cantidad > 1 ? 's' : ''} al Pedido!`, 
-            {
-                position: "top-right",
-                autoClose: 3800,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
+            toast.success(`¡${producto.cantidad} Bocadito${producto.cantidad > 1 ? 's' : ''} Agregado${producto.cantidad > 1 ? 's' : ''} al Pedido!`,
+                {
+                    position: "top-right",
+                    autoClose: 3800,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
                 }
             )
         }
@@ -85,6 +85,18 @@ const BocadosProvider = ({ children }) => {
         setModal(false)
     }
 
+    //Editar catidad del producto en el pedido
+    const handleEditarCantidad = (id) => {
+        const productoActuActualizar = pedido.filter(producto => producto.id ===id)
+        setProducto(productoActuActualizar[0])
+        setModal(!modal)
+    }
+
+    //Eliminar el producto del pedido
+    const handleEliminarProducto = id => {
+        const pedidoActualizado = pedido.filter(producto => producto.id !==id)
+        setPedido(pedidoActualizado)
+    }
 
     return (
         <BocadosContext.Provider
@@ -98,6 +110,8 @@ const BocadosProvider = ({ children }) => {
                 handleChangeModal,
                 handleAgregarPedido,
                 pedido,
+                handleEditarCantidad,
+                handleEliminarProducto
             }}
         >
             {children}
