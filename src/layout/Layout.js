@@ -28,7 +28,7 @@ Modal.setAppElement('#__next');
 
 export default function Layout({ children, pagina }) {
 
-  const { modal } = useBocados()
+  const { modal, pedido } = useBocados()
 
   return (
     <>
@@ -44,8 +44,9 @@ export default function Layout({ children, pagina }) {
 
         <main className="md:w-8/12 xl:w-9/12 2xl:w-4/5 md:h-screen md:overflow-y-scroll">
           <div className="py-10 px-5 md:px-8 xl:px-12">
-            <Pasos/>
-            {children}
+            <Pasos />
+            {children}  
+        
           </div>
         </main>
       </div>

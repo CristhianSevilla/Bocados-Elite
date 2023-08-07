@@ -14,8 +14,8 @@ const Categoria = ({ categoria }) => {
                 onClick={() => handleClickCategoria(id)}
             >
                 <Image
-                    width={53}
-                    height={53}
+                    width={50}
+                    height={50}
                     src={`/assets/img/icono_${icono}.jpg`}
                     alt="Icono"
                     priority

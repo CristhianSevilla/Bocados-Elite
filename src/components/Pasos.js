@@ -40,7 +40,7 @@ const Pasos = () => {
                 }
             </div>
 
-            <div className="bg-amber-100 mb-10 rounded-full">
+            <div className="bg-amber-100 rounded-full">
                 <div className="rounded-full bg-amber-500 text-xs leading-none h-2 text-center text-white" style={{width: `${calcularProgreso()}%`}}>
 
                 </div>

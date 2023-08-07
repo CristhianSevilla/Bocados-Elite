@@ -1,6 +1,7 @@
 import { useEffect, useState, createContext } from "react";
 import axios from "axios"
 import { toast } from "react-toastify"
+import { useRouter } from "next/router";
 
 const BocadosContext = createContext()
 
@@ -11,6 +12,9 @@ const BocadosProvider = ({ children }) => {
     const [producto, setProducto] = useState({})
     const [modal, setModal] = useState(false)
     const [pedido, setPedido] = useState([])
+    const [nombre, setNombre] = useState('')
+
+    const router = useRouter()
 
     // Consultar API
     useEffect(() => {
@@ -30,6 +34,7 @@ const BocadosProvider = ({ children }) => {
     const handleClickCategoria = id => {
         const categoria = categorias.filter(cat => cat.id === id)
         setCategoriaActual(categoria[0])
+        router.push('/')
     }
 
     //Agregar el Producto al State
@@ -111,7 +116,9 @@ const BocadosProvider = ({ children }) => {
                 handleAgregarPedido,
                 pedido,
                 handleEditarCantidad,
-                handleEliminarProducto
+                handleEliminarProducto,
+                nombre,
+                setNombre
             }}
         >
             {children}
