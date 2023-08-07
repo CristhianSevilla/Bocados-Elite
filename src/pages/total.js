@@ -1,10 +1,11 @@
 import { useEffect, useCallback } from "react"
 import Layout from "@/layout/Layout"
 import useBocados from "@/hooks/useBocados"
+import { formatearDinero } from "@/helpers"
 
 export default function Total() {
 
-    const { pedido, nombre, setNombre } = useBocados()
+    const { pedido, nombre, setNombre, colocarOrden, total } = useBocados()
 
     const comprobarPedido = useCallback(() => {
         return pedido.length === 0 || nombre === '' || nombre.length < 3
@@ -13,14 +14,6 @@ export default function Total() {
     useEffect(() => {
         comprobarPedido()
     }, [pedido, comprobarPedido])
-
-    const colocarOrden = (e) => {
-        e.preventDefault()
-
-        console.log('Colocando pedido');
-    }
-
-
 
     return (
         <Layout
@@ -31,7 +24,6 @@ export default function Total() {
 
             <form
                 onClick={colocarOrden}
-                className="mb-48"
                 >
                 <div>
                     <label
@@ -47,7 +39,7 @@ export default function Total() {
                     />
                 </div>
                 <div className="mt-10 text-amber-100 text-2xl">
-                    <p>Total a Pagar: {''} <span className="font-bold text-amber-500">$200</span></p>
+                    <p>Total a Pagar: {''} <span className="font-bold text-amber-500">{formatearDinero(total)}</span></p>
                 </div>
                 <div className="mt-10">
                     <input

@@ -13,6 +13,7 @@ const BocadosProvider = ({ children }) => {
     const [modal, setModal] = useState(false)
     const [pedido, setPedido] = useState([])
     const [nombre, setNombre] = useState('')
+    const [total, setTotal] = useState(0)
 
     const router = useRouter()
 
@@ -29,6 +30,13 @@ const BocadosProvider = ({ children }) => {
     useEffect(() => {
         setCategoriaActual(categorias[0])
     }, [categorias])
+
+    //Calcular Total
+    useEffect(() => {
+        const totalFinal = pedido.reduce((total, producto) => (producto.precio * producto.cantidad) + total, 0)
+
+        setTotal(totalFinal);
+    }, [pedido])
 
     //Obtener categoria actual
     const handleClickCategoria = id => {
@@ -103,6 +111,14 @@ const BocadosProvider = ({ children }) => {
         setPedido(pedidoActualizado)
     }
 
+    //
+    const colocarOrden = async (e) => {
+        e.preventDefault()
+
+        console.log('Colocando pedido');
+    }
+
+
     return (
         <BocadosContext.Provider
             value={{
@@ -118,7 +134,9 @@ const BocadosProvider = ({ children }) => {
                 handleEditarCantidad,
                 handleEliminarProducto,
                 nombre,
-                setNombre
+                setNombre,
+                colocarOrden,
+                total
             }}
         >
             {children}
