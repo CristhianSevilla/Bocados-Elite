@@ -18,7 +18,7 @@ const Producto = ({ producto }) => {
             />
 
             <div className="p-3 pb-9 relative">
-                <h3 className="text-amber-100 md:text-xl upp">
+                <h3 className="text-amber-100 md:text-xl">
                     {nombre}
                 </h3>
             </div>

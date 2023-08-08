@@ -19,7 +19,7 @@ export default function AdminLayout({ children, pagina }) {
                 </aside>
 
                 <main className="md:w-8/12 xl:w-3/4 2xl:w-4/5 md:h-screen md:overflow-y-scroll">
-                    <div className="p-10">
+                    <div className="p-5 md:p-10">
                         {children}
                     </div>
                 </main>
