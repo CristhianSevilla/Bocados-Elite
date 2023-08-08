@@ -111,13 +111,23 @@ const BocadosProvider = ({ children }) => {
         setPedido(pedidoActualizado)
     }
 
-    //
     const colocarOrden = async (e) => {
         e.preventDefault()
 
         try {
-            const { data } = await axios.post("/api/ordenes", {pedido, nombre, total, fecha: Date.now().toString()})
-            console.log(data);
+            //Enviar datos a la API
+           await axios.post("/api/ordenes", {pedido, nombre, total, fecha: Date.now().toString()})
+
+           //Resetear la Aplicación
+           setCategoriaActual(categorias[0])
+           setPedido([])
+           setNombre('')
+           setTotal(0)
+
+           //Notificar al usuario
+           toast.success("¡Genial, Hemos Tomado tu Pedido!")
+
+
         } catch (error) {
             console.log(error);
         }
