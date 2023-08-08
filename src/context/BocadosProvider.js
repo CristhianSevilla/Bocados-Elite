@@ -100,14 +100,14 @@ const BocadosProvider = ({ children }) => {
 
     //Editar catidad del producto en el pedido
     const handleEditarCantidad = (id) => {
-        const productoActuActualizar = pedido.filter(producto => producto.id ===id)
+        const productoActuActualizar = pedido.filter(producto => producto.id === id)
         setProducto(productoActuActualizar[0])
         setModal(!modal)
     }
 
     //Eliminar el producto del pedido
     const handleEliminarProducto = id => {
-        const pedidoActualizado = pedido.filter(producto => producto.id !==id)
+        const pedidoActualizado = pedido.filter(producto => producto.id !== id)
         setPedido(pedidoActualizado)
     }
 
@@ -115,7 +115,13 @@ const BocadosProvider = ({ children }) => {
     const colocarOrden = async (e) => {
         e.preventDefault()
 
-        console.log('Colocando pedido');
+        try {
+            const { data } = await axios.post("/api/ordenes", {pedido, nombre, total, fecha: Date.now().toString()})
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
 

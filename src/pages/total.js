@@ -23,7 +23,7 @@ export default function Total() {
             <p className="text-2xl mt-5 mb-10 text-amber-100">¡Confirma tu pedido!</p>
 
             <form
-                onClick={colocarOrden}
+                onSubmit={colocarOrden}
                 >
                 <div>
                     <label
