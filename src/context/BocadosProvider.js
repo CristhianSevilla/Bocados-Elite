@@ -64,34 +64,12 @@ const BocadosProvider = ({ children }) => {
             setPedido(pedidoActualizado)
 
             //Mostrar Notificación
-            toast.success(`Pedido Actualizado con: ${producto.cantidad} ${producto.nombre} `,
-                {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                }
-            )
+            toast.success(`Pedido Actualizado con: ${producto.cantidad} ${producto.nombre} `)
         } else {
             setPedido([...pedido, producto])
 
             //Mostrar Notificación
-            toast.success(`¡${producto.cantidad} Bocadito${producto.cantidad > 1 ? 's' : ''} Agregado${producto.cantidad > 1 ? 's' : ''} al Pedido!`,
-                {
-                    position: "top-right",
-                    autoClose: 3800,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                }
-            )
+            toast.success(`¡${producto.cantidad} Bocadito${producto.cantidad > 1 ? 's' : ''} Agregado${producto.cantidad > 1 ? 's' : ''} al Pedido!`)
         }
 
         //Asegurar que el modal se cierre cuando se agrega al pedido
