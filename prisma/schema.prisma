@@ -6,31 +6,32 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Producto {
-  id Int @id @default(autoincrement())
-  nombre String
-  precio Float
-  imagen String
-  categoria Categoria @relation(fields: [categoriaId], references: [id])
+  id          Int       @id @default(autoincrement())
+  nombre      String
+  precio      Float
+  imagen      String
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
   categoriaId Int
-  }
+}
 
-  model Categoria {
-    id Int @id @default(autoincrement())
-    nombre String
-    icono String
-    productos Producto []
-  }
+model Categoria {
+  id        Int        @id @default(autoincrement())
+  nombre    String
+  icono     String
+  productos Producto[]
+}
 
-  model Orden{
-    id Int @id @default(autoincrement())
-    nombre String
-    fecha String
-    total Float
-    pedido Json
-    estado Boolean @default(false)
-  }
+model Orden {
+  id     Int     @id @default(autoincrement())
+  nombre String
+  fecha  String
+  total  Float
+  pedido Json
+  estado Boolean @default(false)
+}
