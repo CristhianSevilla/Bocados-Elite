@@ -130,7 +130,7 @@ const BocadosProvider = ({ children }) => {
                 nombre,
                 setNombre,
                 colocarOrden,
-                total
+                total,
             }}
         >
             {children}

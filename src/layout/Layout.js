@@ -20,6 +20,8 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     backgroundColor: '#000', // Color del fondo del contenido del modal
+    width: '80%',
+    maxWidth: '800px',
   },
 };
 
@@ -28,7 +30,9 @@ Modal.setAppElement('#__next');
 
 export default function Layout({ children, pagina }) {
 
-  const { modal, pedido } = useBocados()
+  const { modal, pedido, handleChangeModal } = useBocados()
+
+
 
   return (
     <>
@@ -45,8 +49,8 @@ export default function Layout({ children, pagina }) {
         <main className="md:w-8/12 xl:w-9/12 2xl:w-4/5 md:h-screen md:overflow-y-scroll">
           <div className="py-10 px-5 md:px-8 xl:px-12">
             <Pasos />
-            {children}  
-        
+            {children}
+
           </div>
         </main>
       </div>
@@ -55,8 +59,10 @@ export default function Layout({ children, pagina }) {
         <Modal
           isOpen={modal}
           style={customStyles}
+          onRequestClose={handleChangeModal} // Configurando la función para cerrar el modal
         >
           <ModalProducto />
+          <button onClick={handleChangeModal}></button>
         </Modal>
       }
 
