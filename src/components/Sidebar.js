@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="flex justify-between md:justify-center h-24 md:h-auto py-4 md:py-0 ">
+      <div className="flex justify-between md:justify-center h-20 md:h-auto py-2 md:py-0 ">
         <Image width={150} height={150} src="/assets/img/logo.svg" alt="Logotipo Bocados Elite" priority onClick={() => {
           router.push("/")
         }} />
