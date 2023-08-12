@@ -24,7 +24,7 @@ const Pasos = () => {
 
     return (
         <>
-            <div className="flex justify-between mb-5" >
+            <div className="flex justify-between mb-5 mt-24 md:mt-0" >
                 {
                     pasos.map(paso => (
                         <button

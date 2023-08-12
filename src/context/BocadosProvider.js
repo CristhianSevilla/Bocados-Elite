@@ -14,6 +14,12 @@ const BocadosProvider = ({ children }) => {
     const [pedido, setPedido] = useState([])
     const [nombre, setNombre] = useState('')
     const [total, setTotal] = useState(0)
+    const [menuOpen, setMenuOpen] = useState(false);
+
+//Ocultar el Menú
+    const toggleMenu = () => {
+      setMenuOpen(!menuOpen);
+    };
 
     const router = useRouter()
 
@@ -116,6 +122,8 @@ const BocadosProvider = ({ children }) => {
     return (
         <BocadosContext.Provider
             value={{
+                toggleMenu,
+                menuOpen,
                 categorias,
                 categoriaActual,
                 handleClickCategoria,

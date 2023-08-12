@@ -20,9 +20,9 @@ export default function Resumen() {
                 pedido.length === 0 ? (
 
                     <>
-                        <p className="text-center text-amber-200 text-3xl mt-15 mb-10">Aún no agregas Bocaditos a tu pedido</p>
+                        <p className="text-center text-amber-200 text-2xl md:text-3xl mt-15 mb-10">Aún no agregas Bocaditos a tu pedido</p>
 
-                        <p className="text-center text-amber-200 text-2xl mb-20">¡Ve al menú y Elige tus Favoritos!</p>
+                        <p className="text-center text-amber-200 text-xl md:text-2xl mb-20">¡Ve al menú y Elige tus Favoritos!</p>
                     </>
 
                 ) : (
