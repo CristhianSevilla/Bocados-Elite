@@ -18,7 +18,7 @@ const ModalProducto = () => {
     }, [producto, pedido])
 
     return (
-        <div className="md:flex gap-10 relative">
+        <div className="md:flex md:gap-5 xl:gap-10 relative">
             <div className="absolute right-0 top-0 text-amber-100">
                 <button
                     onClick={handleChangeModal}
@@ -38,11 +38,11 @@ const ModalProducto = () => {
             </div>
             <div className="md:w-2/3">
 
-                <h1 className="text-3xl font-bold mt-5 text-amber-100">{producto.nombre}</h1>
-                <p className="mt-5 font-black text-5xl text-amber-500">
+                <h1 className="text-2xl xl:text-3xl font-bold mt-5 text-amber-100">{producto.nombre}</h1>
+                <p className="mt-2 xl:mt-5 font-black text-3xl xl:text-5xl text-amber-500">
                     {formatearDinero(producto.precio)}
                 </p>
-                <div className="flex gap-5 mt-5 text-amber-100">
+                <div className="flex gap-5 mt-2 xl:mt-5 text-amber-100">
                     <button
                         type="button"
                         onClick={() => {
@@ -73,7 +73,7 @@ const ModalProducto = () => {
 
                 <button
                     type="button"
-                    className="w-full bg-amber-200 hover:bg-lime-600 text-amber-950 mt-5 font-bold text-xl md:text-2xl uppercase p-1.5"
+                    className="w-full bg-amber-200 hover:bg-lime-600 text-amber-950 mt-3 xl:mt-5 font-bold text-lg md:text-2xl uppercase p-1.5"
                     onClick={() => handleAgregarPedido({ ...producto, cantidad })}
                 >
                     {edicion ? "Guardar Cambios" : "Agregar al pedido"}
