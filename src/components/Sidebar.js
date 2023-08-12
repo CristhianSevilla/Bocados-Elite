@@ -8,7 +8,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="flex justify-center border border-x-0 border-black pt-2">
+      <div className="flex justify-center border border-x-0 border-black pt-2 bg-amber-300">
         <Image width={150} height={150} src="/assets/img/logo.svg" alt="Logotipo Bocados Elite" priority />
       </div>
 
