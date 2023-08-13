@@ -8,7 +8,7 @@ import { toast } from "react-toastify"
 const ModalCobrar = () => {
 
     const { handleChangeModal, orden } = useBocados()
-    const { id,  total } = orden
+    const { id, total } = orden
 
     const [montoEntregado, setMontoEntregado] = useState(0)
     const [cambio, setCambio] = useState(0)
@@ -16,7 +16,7 @@ const ModalCobrar = () => {
     useEffect(() => {
         if (montoEntregado < total) {
             setCambio(0)
-        }else{
+        } else {
             setCambio(montoEntregado - total)
         }
     }, [montoEntregado])
@@ -57,31 +57,32 @@ const ModalCobrar = () => {
             </div>
             <form
                 onSubmit={completarOrden}
-                className="p-3 pt-12"
+                className="p-2 pt-12"
             >
                 <div className="md:flex md:gap-5 mb-5 items-center">
                     <label
                         htmlFor="nombre"
-                        className="text-amber-100 text-2xl"
+                        className="md:flex md:justify-end text-amber-100 text-2xl w-52"
                     >Monto Entregado:</label>
                     <input
                         id="nombre"
-                        type="text"
-                        className="bg-gray-100 text-amber-950 w-full xl:w-1/3 mt-3 rounded-md py-2 pl-2 font-bold text-2xl"
+                        type="number"
+                        className="bg-gray-100 text-amber-950 w-full xl:w-1/3 mt-3 rounded-md py-2 pl-2 font-bold text-2xl flex-1"
                         placeholder={0}
                         value={montoEntregado}
                         onChange={e => setMontoEntregado(e.target.value)}
                     />
                 </div>
+
                 <div className="md:flex md:gap-5 mb-5 items-center">
                     <label
                         htmlFor="nombre"
-                        className="text-amber-100 text-2xl"
+                        className="md:flex md:justify-end text-amber-100 text-2xl w-52"
                     >Monto a Pagar:</label>
                     <input
                         id="nombre"
                         type="text"
-                        className="bg-gray-400 text-amber-950 w-full xl:w-1/3 mt-3 rounded-md py-2 pl-2 font-bold text-2xl"
+                        className="bg-gray-400 text-amber-950 w-full xl:w-1/3 mt-3 rounded-md py-2 pl-2 font-bold text-2xl flex-1"
                         value={formatearDinero(total)}
                         disabled={true}
                     />
@@ -90,22 +91,22 @@ const ModalCobrar = () => {
                 <div className="md:flex md:gap-5 items-center">
                     <label
                         htmlFor="nombre"
-                        className="text-amber-100 text-2xl"
+                        className="md:flex md:justify-end text-amber-100 text-2xl w-52"
                     >Cambio:</label>
                     <input
                         id="nombre"
                         type="text"
-                        className="bg-gray-400 text-amber-950 w-full xl:w-1/3 mt-3 rounded-md py-2 pl-2 font-bold text-2xl"
+                        className="bg-gray-400 text-amber-950 w-full xl:w-1/3 mt-3 rounded-md py-2 pl-2 font-bold text-2xl flex-1"
                         value={formatearDinero(cambio)}
                         disabled={true}
                     />
                 </div>
 
-                <div className="mt-10">
+                <div className="mt-10 md:px-5">
                     <input
                         type="submit"
                         value=" Cobrar Pedido"
-                        className={`${comprobarCantidad() ? 'bg-indigo-100' : 'hover:bg-lime-600  bg-lime-500 hover:cursor-pointer'} w-full xl:w-auto  text-amber-950 mt-5 font-bold text-xl uppercase px-5 py-2 text-center rounded `}
+                        className={`${comprobarCantidad() ? 'bg-indigo-100' : 'hover:bg-lime-600  bg-lime-500 hover:cursor-pointer'} w-full  text-amber-950 mt-5 font-bold text-xl uppercase py-2 px-5 text-center rounded`}
                         disabled={comprobarCantidad()}
                     />
                 </div>

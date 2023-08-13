@@ -18,8 +18,8 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         backgroundColor: '#000', // Color del fondo del contenido del modal
-        width: '70%',
-        maxWidth: '800px',
+        width: '80%',
+        maxWidth: '500px',
         zIndex: 30,
         position: 'fixed',
     },

@@ -17,12 +17,13 @@ const BocadosProvider = ({ children }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [orden, setOrden] = useState({})
 
+    const router = useRouter()
+
+
     //Ocultar el Menú
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
-
-    const router = useRouter()
 
     // Consultar API
     useEffect(() => {

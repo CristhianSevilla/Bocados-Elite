@@ -1,7 +1,5 @@
 import Image from "next/image"
-import axios from "axios"
 import useBocados from "@/hooks/useBocados"
-import { toast } from "react-toastify"
 import { formatearDinero } from "@/helpers"
 
 function Orden({ orden }) {
@@ -13,28 +11,17 @@ function Orden({ orden }) {
         setOrden(orden)
     }
 
-    const completarOrden = async () => {
-        try {
-            await axios.post(`/api/ordenes/${id}`)
-
-            toast.success("Orden Cobrada Exitosamente")
-        } catch (error) {
-            console.log(error);
-            toast.error("Acaba de ocurrir un error")
-        }
-    }
-
     return (
-        <div className="shadow shadow-amber-700 rounded-md border-2 border-amber-800  mb-10 p-3">
+        <div className="shadow shadow-amber-700 rounded-md border-2 border-amber-800  mb-10 p-3 md:p-5 xl:px-10">
             <div>
-                <h1 className="text-amber-100 text-3xl font-bold mt-10">Orden: {id}</h1>
+                <h1 className="text-amber-100 text-3xl font-bold">Orden: {id}</h1>
 
-                <p className="text-2xl mt-5 mb-10 text-amber-100">Cliente: {nombre}</p>
+                <p className="text-2xl my-3 md:my-4 text-amber-100">Cliente: {nombre}</p>
             </div>
-            <div className="">
+            <div>
                 {
                     pedido.map(platillo =>
-                    (<div key={platillo.id} className="flex py-3 border-b border-gray-400 last-of-type:border-3 items-center">
+                    (<div key={platillo.id} className="flex md:gap-5 py-3 border-b border-gray-400 items-center">
                         <div className="w-32">
                             <Image
                                 width={400}
@@ -51,10 +38,10 @@ function Orden({ orden }) {
                     )
                 }
             </div>
-            <div className="xl:flex  py-10 px-3 md:items-center xl:justify-between my-5">
-                <p className="text-3xl md:text-4xl xl:text-2xl  text-amber-100 font-bold">Total a Pagar: <span className="text-lime-600">{formatearDinero(total)}</span></p>
+            <div className="xl:flex py-6 px-3 md:items-center xl:justify-between">
+                <p className="text-2xl md:text-3xl xl:text-2xl  text-amber-100 font-bold flex justify-between items-end gap-2">Total a Pagar: <span className="text-lime-600 text-3xl md:text-4xl xl:text-3xl">{formatearDinero(total)}</span></p>
                 <button
-                    className="w-full xl:w-auto xl:px-16 bg-lime-500 hover:bg-lime-600 text-amber-950 py-3 mt-5 xl:mt-0 rounded-md font-bold uppercase text-xl"
+                    className="w-full xl:w-auto xl:px-16 bg-lime-500 hover:bg-lime-600 text-amber-950 py-3 mt-6 md:mt-8 xl:mt-0 rounded-md font-bold uppercase text-xl"
                     type="button"
                     onClick={() => {
                         handleSetOrden(orden)
