@@ -1,11 +1,17 @@
 import Image from "next/image"
 import axios from "axios"
-import {toast} from "react-toastify"
+import useBocados from "@/hooks/useBocados"
+import { toast } from "react-toastify"
 import { formatearDinero } from "@/helpers"
 
 function Orden({ orden }) {
 
     const { id, nombre, total, pedido } = orden
+    const { handleChangeModal, setOrden } = useBocados()
+
+    const handleSetOrden = (orden) => {
+        setOrden(orden)
+    }
 
     const completarOrden = async () => {
         try {
@@ -47,10 +53,13 @@ function Orden({ orden }) {
             </div>
             <div className="xl:flex  py-10 px-3 md:items-center xl:justify-between my-5">
                 <p className="text-3xl md:text-4xl xl:text-2xl  text-amber-100 font-bold">Total a Pagar: <span className="text-lime-600">{formatearDinero(total)}</span></p>
-                <button 
-                className="w-full xl:w-auto xl:px-16 bg-lime-500 hover:bg-lime-600 text-amber-950 py-3 mt-5 xl:mt-0 rounded-md font-bold uppercase text-xl"
-                type="button"
-                onClick={completarOrden}
+                <button
+                    className="w-full xl:w-auto xl:px-16 bg-lime-500 hover:bg-lime-600 text-amber-950 py-3 mt-5 xl:mt-0 rounded-md font-bold uppercase text-xl"
+                    type="button"
+                    onClick={() => {
+                        handleSetOrden(orden)
+                        handleChangeModal()
+                    }}
                 >
                     Cobrar
                 </button>

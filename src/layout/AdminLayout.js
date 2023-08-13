@@ -1,9 +1,36 @@
 import Head from "next/head";
 import Image from "next/image";
+import Modal from "react-modal"
+import ModalCobrar from "@/components/ModalCobrar";
+import useBocados from "@/hooks/useBocados";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const customStyles = {
+    overlay: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)', // Color del fondo del modal
+    },
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#000', // Color del fondo del contenido del modal
+        width: '70%',
+        maxWidth: '800px',
+        zIndex: 30,
+        position: 'fixed',
+    },
+};
+
+Modal.setAppElement('#__next');
+
 export default function AdminLayout({ children, pagina }) {
+
+    const { modal, handleChangeModal, handleChangeModalCobrar } = useBocados()
+
     return (
         <>
             <Head>
@@ -24,6 +51,18 @@ export default function AdminLayout({ children, pagina }) {
                     </div>
                 </main>
             </div>
+
+            {
+                <Modal
+                    isOpen={modal}
+                    style={customStyles}
+                    onRequestClose={handleChangeModal} // Configurando la función para cerrar el modal
+                >
+                    <ModalCobrar />
+                    <button onClick={handleChangeModal}></button>
+                </Modal>
+            }
+
             <ToastContainer />
         </>
     );

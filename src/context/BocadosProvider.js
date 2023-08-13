@@ -15,10 +15,11 @@ const BocadosProvider = ({ children }) => {
     const [nombre, setNombre] = useState('')
     const [total, setTotal] = useState(0)
     const [menuOpen, setMenuOpen] = useState(false);
+    const [orden, setOrden] = useState({})
 
-//Ocultar el Menú
+    //Ocultar el Menú
     const toggleMenu = () => {
-      setMenuOpen(!menuOpen);
+        setMenuOpen(!menuOpen);
     };
 
     const router = useRouter()
@@ -100,16 +101,16 @@ const BocadosProvider = ({ children }) => {
 
         try {
             //Enviar datos a la API
-           await axios.post("/api/ordenes", {pedido, nombre, total, fecha: Date.now().toString()})
+            await axios.post("/api/ordenes", { pedido, nombre, total, fecha: Date.now().toString() })
 
-           //Resetear la Aplicación
-           setCategoriaActual(categorias[0])
-           setPedido([])
-           setNombre('')
-           setTotal(0)
+            //Resetear la Aplicación
+            setCategoriaActual(categorias[0])
+            setPedido([])
+            setNombre('')
+            setTotal(0)
 
-           //Notificar al usuario
-           toast.success("¡Genial, Hemos Tomado tu Pedido!")
+            //Notificar al usuario
+            toast.success("¡Genial, Hemos Tomado tu Pedido!")
 
 
         } catch (error) {
@@ -139,6 +140,8 @@ const BocadosProvider = ({ children }) => {
                 setNombre,
                 colocarOrden,
                 total,
+                orden,
+                setOrden
             }}
         >
             {children}

@@ -20,8 +20,10 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     backgroundColor: '#000', // Color del fondo del contenido del modal
-    width: '75%',
+    width: '70%',
     maxWidth: '800px',
+    zIndex: 30,
+    position: 'fixed',
   },
 };
 
@@ -30,7 +32,7 @@ Modal.setAppElement('#__next');
 
 export default function Layout({ children, pagina }) {
 
-  const { modal, pedido, handleChangeModal } = useBocados()
+  const { modal, pedido, handleChangeModal, handleChangeModalCobrar } = useBocados()
   return (
     <>
       <Head>
@@ -39,7 +41,7 @@ export default function Layout({ children, pagina }) {
       </Head>
 
       <div className="md:flex ">
-        <aside className="md:w-4/12 xl:w-3/12 2xl:w-1/5 bg-amber-400 md:bg-amber-300 fixed md:static w-full z-50">
+        <aside className="md:w-4/12 xl:w-3/12 2xl:w-1/5 bg-amber-400 md:bg-amber-300 fixed md:static w-full z-10 md:z-0">
           <Sidebar />
         </aside>
 
