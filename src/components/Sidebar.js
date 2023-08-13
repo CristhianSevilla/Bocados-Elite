@@ -10,12 +10,12 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="flex justify-between md:justify-center h-20 md:h-auto py-2 md:py-0 ">
-        <Image width={150} height={150} src="/assets/img/logo.svg" alt="Logotipo Bocados Elite" priority onClick={() => {
+      <div className="flex justify-between md:justify-center h-20 md:h-auto px-0 py-2 md:py-0 ">
+        <Image width={130} height={130} src="/assets/img/logo.svg" alt="Logotipo Bocados Elite" priority onClick={() => {
           router.push("/")
         }} />
         {/* Botón de hamburguesa para mostrar/ocultar el menú */}
-        <div className="mt-4 mr-10 flex justify-center md:hidden">
+        <div className="mt-4 mr-7 flex justify-center md:hidden">
           <button
             className="text-xl flex items-center gap-3 font-bold text-amber-950 uppercase"
             onClick={toggleMenu}
@@ -27,13 +27,12 @@ const Sidebar = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
 
-
           </button>
         </div>
       </div >
 
-      {/* Mostrar el menú de hamburguesa solo en dispositivos móviles */}
-      <nav nav className={`mt-4 ${menuOpen ? "block" : "hidden"} md:hidden`
+      {/* Mostrar el menú de hamburguesa solo en dispositivos móviles*/}
+      <nav nav className={`${menuOpen ? "block" : "hidden"} md:block`
       }>
         {
           categorias.map(categoria => (
@@ -45,18 +44,6 @@ const Sidebar = () => {
         }
       </nav >
 
-      {/* Menú completo para laptops y tabletas */}
-      < nav className="hidden mt-4 md:block" >
-        {
-          categorias.map(categoria => (
-            <Categoria
-              key={categoria.id}
-              categoria={categoria}
-              onClick={toggleMenu}
-            />
-          ))
-        }
-      </nav >
     </>
   )
 }
