@@ -23,7 +23,7 @@ const ModalProducto = () => {
                 <button
                     onClick={handleChangeModal}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-9 h-9">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#000" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </button>
@@ -73,7 +73,7 @@ const ModalProducto = () => {
 
                 <button
                     type="button"
-                    className="w-full bg-amber-200 hover:bg-lime-600 text-amber-950 mt-3 xl:mt-5 font-bold text-lg md:text-2xl uppercase p-1.5"
+                    className="w-full bg-lime-500 hover:bg-lime-600 text-amber-950 mt-3 xl:mt-5 font-bold text-lg md:text-2xl uppercase p-1.5"
                     onClick={() => handleAgregarPedido({ ...producto, cantidad })}
                 >
                     {edicion ? "Guardar Cambios" : "Agregar al pedido"}

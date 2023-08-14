@@ -28,8 +28,12 @@ const BocadosProvider = ({ children }) => {
     // Consultar API
     useEffect(() => {
         const obtenerCategorias = async () => {
+         try {
             const { data } = await axios('/api/categorias')
             setCategorias(data)
+         } catch (error) {
+            console.log(error);
+         }
         }
         obtenerCategorias()
     }, [])

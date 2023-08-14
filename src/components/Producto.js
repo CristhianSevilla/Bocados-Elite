@@ -15,6 +15,7 @@ const Producto = ({ producto }) => {
                 height={500}
                 alt={`Imagen de ${nombre}`}
                 className="rounded-t-md"
+                priority
             />
 
             <div className="p-3 pb-9 relative">
@@ -28,7 +29,7 @@ const Producto = ({ producto }) => {
             </p>
 
             <button
-                className="flex gap-4 justify-center items-center absolute bottom-0 left-0 w-full border-t hover:bg-lime-600 hover:text-amber-950 text-amber-100 mt-5 font-bold md:text-xl uppercase p-1.5"
+                className="flex gap-4 justify-center items-center absolute bottom-0 left-0 w-full border-t border-amber-100 hover:bg-lime-500 hover:text-amber-950 text-amber-100 mt-5 font-bold md:text-xl uppercase p-1.5"
                 type="button"
                 onClick={() => {
                     handleChangeModal()

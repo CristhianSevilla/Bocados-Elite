@@ -32,7 +32,7 @@ const Sidebar = () => {
       </div >
 
       {/* Mostrar el menú de hamburguesa solo en dispositivos móviles*/}
-      <nav nav className={`${menuOpen ? "block" : "hidden"} md:block`
+      <nav className={`${menuOpen ? "block" : "hidden"} md:block`
       }>
         {
           categorias.map(categoria => (
