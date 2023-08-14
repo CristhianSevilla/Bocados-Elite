@@ -33,13 +33,13 @@ export default function Total() {
                     <input
                         id="nombre"
                         type="text"
-                        className="bg-gray-200 text-amber-950 w-full xl:w-1/3 mt-3 rounded-md py-2"
+                        className="bg-gray-200 text-amber-950 w-full xl:w-1/3 mt-3 rounded-md py-2 text-xl font-bold pl-3"
                         value={nombre}
                         onChange={e => setNombre(e.target.value)}
                     />
                 </div>
                 <div className="mt-10 text-amber-100 text-2xl">
-                    <p>Total a Pagar: {''} <span className="font-bold text-amber-500">{formatearDinero(total)}</span></p>
+                    <p>Total a Pagar: {''} <span className="font-bold text-lime-600">{formatearDinero(total)}</span></p>
                 </div>
                 <div className="mt-10">
                     <input

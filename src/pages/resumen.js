@@ -20,23 +20,24 @@ export default function Resumen() {
                 pedido.length === 0 ? (
 
                     <>
-                        <p className="text-center text-amber-200 text-2xl md:text-3xl mt-15 mb-10">Aún no agregas Bocaditos a tu pedido</p>
-
-                        <p className="text-center text-amber-200 text-xl md:text-2xl mb-20">¡Ve al menú y Elige tus Favoritos!</p>
+                        <p className="text-center text-amber-200 text-xl md:text-2xl mt-15 mb-5 px-10">Aún no agregas Bocaditos</p>
+                        <p className="text-center text-amber-400 text-xl md:text-2xl">¡Ve al Menú y Elige tus Favoritos!</p>
                     </>
 
                 ) : (
-                    pedido.map(producto => (
+                    <div className="grid grid-cols-2 gap-5 md:block">
+                    {  pedido.map(producto => (
                         <ResumenProducto
                             key={producto.id}
                             producto={producto}
                         />
-                    ))
+                        ))}
+                    </div>
                 )
             }
 
-{
-              pedido.length >= 2 ? <Pasos /> : '' 
+            {
+                pedido.length >= 3 ? <Pasos /> : ''
             }
 
         </Layout>

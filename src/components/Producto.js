@@ -8,7 +8,7 @@ const Producto = ({ producto }) => {
     const { handleSetProducto, handleChangeModal } = useBocados()
 
     return (
-        <div className="border border-amber-100 rounded-md relative pb-16">
+        <div className="border border-amber-100 rounded-md relative pb-14">
             <Image
                 src={`/assets/img/${imagen}.jpg`}
                 width={400}
@@ -18,18 +18,18 @@ const Producto = ({ producto }) => {
                 priority
             />
 
-            <div className="p-3 pb-9 relative">
-                <h3 className="text-amber-100 md:text-xl">
+            <div className="px-3 py-2 pb-9 relative">
+                <h3 className="text-amber-100 md:text-lg">
                     {nombre}
                 </h3>
             </div>
 
-            <p className="absolute bottom-12 right-3 mb-3 text-amber-500  font-black text-2xl md:text-3xl">
+            <p className="absolute bottom-14 right-3 text-amber-500  font-black text-xl md:text-2xl">
                 {formatearDinero(precio)}
             </p>
 
             <button
-                className="flex gap-4 justify-center items-center absolute bottom-0 left-0 w-full border-t border-amber-100 hover:bg-lime-500 hover:text-amber-950 text-amber-100 mt-5 font-bold md:text-xl uppercase p-1.5"
+                className="flex gap-4 justify-center items-center absolute bottom-0 left-0 w-full border-t hover:bg-lime-500 hover:text-amber-950 text-amber-100 mt-5 font-bold md:text-xl uppercase p-1.5"
                 type="button"
                 onClick={() => {
                     handleChangeModal()

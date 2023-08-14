@@ -76,7 +76,7 @@ const BocadosProvider = ({ children }) => {
             setPedido(pedidoActualizado)
 
             //Mostrar Notificación
-            toast.success(`Pedido Actualizado con: ${producto.cantidad} ${producto.nombre} `)
+            toast.success(`¡Pedido Actualizado!`)
         } else {
             setPedido([...pedido, producto])
 

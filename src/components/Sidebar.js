@@ -11,13 +11,13 @@ const Sidebar = () => {
   return (
     <>
       <div className="flex justify-between md:justify-center h-20 md:h-auto px-0 py-2 md:py-0 ">
-        <Image width={130} height={130} src="/assets/img/logo.svg" alt="Logotipo Bocados Elite" priority onClick={() => {
+        <Image className="-ml-7 md:m-0 p-1 md:p-0 md:pt-1" width={145} height={145} src="/assets/img/logo.svg" alt="Logotipo Bocados Elite" priority onClick={() => {
           router.push("/")
         }} />
         {/* Botón de hamburguesa para mostrar/ocultar el menú */}
-        <div className="mt-4 mr-7 flex justify-center md:hidden">
+        <div className="mt-4 mr-3 flex justify-center md:hidden">
           <button
-            className="text-xl flex items-center gap-3 font-bold text-amber-950 uppercase"
+            className="text-xl flex items-center gap-3 font-bold text-amber-950 uppercase pb-2"
             onClick={toggleMenu}
           >
 
