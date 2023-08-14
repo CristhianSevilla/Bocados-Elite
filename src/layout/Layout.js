@@ -44,7 +44,7 @@ export default function Layout({ children, pagina }) {
         </aside>
 
         <main className={`${modal ? 'fixed md:static' : ''} md:w-8/12 xl:w-9/12 2xl:w-4/5 md:h-screen md:overflow-y-scroll`}>
-          <div className="pt-24 pb-8 md:py-8 px-4 md:px-8 xl:px-12">
+          <div className="pt-28 pb-8 md:py-8 px-5 md:px-8 xl:px-12">
             <Pasos />
             {children}
 

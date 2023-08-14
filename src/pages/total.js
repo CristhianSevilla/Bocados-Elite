@@ -39,7 +39,7 @@ export default function Total() {
                     />
                 </div>
                 <div className="mt-10 text-amber-100 text-2xl">
-                    <p>Total a Pagar: {''} <span className="font-bold text-lime-600">{formatearDinero(total)}</span></p>
+                    <p>Total a Pagar: {''} <span className="font-bold text-lime-600 text-3xl">{formatearDinero(total)}</span></p>
                 </div>
                 <div className="mt-10">
                     <input

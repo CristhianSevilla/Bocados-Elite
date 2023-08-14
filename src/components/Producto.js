@@ -24,7 +24,7 @@ const Producto = ({ producto }) => {
                 </h3>
             </div>
 
-            <p className="absolute bottom-14 right-3 text-amber-500  font-black text-xl md:text-2xl">
+            <p className="absolute bottom-14 right-3 text-amber-500  font-black text-2xl">
                 {formatearDinero(precio)}
             </p>
 
