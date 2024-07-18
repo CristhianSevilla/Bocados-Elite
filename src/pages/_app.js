@@ -1,10 +1,12 @@
-import '@/styles/globals.css'
-import {BocadosProvider} from '@/context/BocadosProvider'
+import "@/styles/globals.css";
+import { BocadosProvider } from "@/context/BocadosProvider";
+import Spinner from "@/components/Spinner";
 
 export default function App({ Component, pageProps }) {
-  return(
+  return (
     <BocadosProvider>
-      <Component {...pageProps}/>
+      <Spinner />
+      <Component {...pageProps} />
     </BocadosProvider>
-  )
+  );
 }
